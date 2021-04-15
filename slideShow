@@ -1,0 +1,44 @@
+window.addEventListener("load",function(){
+			setInterval(generalIntroductionSlideBackgroud, 6000);
+		})
+		
+		var counterforGeneralIntroductionSlideBackgroudAdd=1;
+		var counterforGeneralIntroductionSlideBackgroudRemove=1;
+		var numberOfGeneralIntroductionBackgroud=3;				/*how many baground do you have*/
+		function generalIntroductionSlideBackgroud()
+		{
+			var tmpForGeneralIntroductionSlidesAdd="generalIntroductionBackground";
+			var tmpForGeneralIntroductionSlidesRemove="generalIntroductionBackground";
+			counterforGeneralIntroductionSlideBackgroudAdd++;
+			if(counterforGeneralIntroductionSlideBackgroudAdd>numberOfGeneralIntroductionBackgroud)
+				{
+					counterforGeneralIntroductionSlideBackgroudAdd=1;
+					counterforGeneralIntroductionSlideBackgroudRemove=numberOfGeneralIntroductionBackgroud;
+				}
+			tmpForGeneralIntroductionSlidesAdd=tmpForGeneralIntroductionSlidesAdd+(counterforGeneralIntroductionSlideBackgroudAdd.toString());
+			tmpForGeneralIntroductionSlidesRemove=tmpForGeneralIntroductionSlidesRemove+(counterforGeneralIntroductionSlideBackgroudRemove.toString());
+			document.querySelector(".generalIntroductionBackgroundContainar").classList.add(tmpForGeneralIntroductionSlidesRemove);
+			document.querySelector(".generalIntroduction").classList.remove(tmpForGeneralIntroductionSlidesRemove);
+			document.querySelector(".generalIntroductionBackgroundContainar").style.opacity="0";
+			/*setTimeOutForGeneralIntroductionBackgroundContainar*/
+			setTimeout(function(){document.querySelector(".generalIntroductionBackgroundContainar").classList.remove(tmpForGeneralIntroductionSlidesRemove);document.querySelector(".generalIntroductionBackgroundContainar").style.opacity="1";},3000)
+			counterforGeneralIntroductionSlideBackgroudRemove++;
+			if(counterforGeneralIntroductionSlideBackgroudRemove>numberOfGeneralIntroductionBackgroud)
+				{
+					counterforGeneralIntroductionSlideBackgroudRemove=1;
+				}
+			document.querySelector(".generalIntroduction").classList.add(tmpForGeneralIntroductionSlidesAdd);
+		}
+    /*add css class called: generalIntroductionBackground(1,2,...) and then add number of backgrond here: numberOfGeneralIntroductionBackgroud and set time of animation duration
+    here: line 1-3 and set type of animation in line 22*/
+    /*html code*/
+    /*
+    <div class="generalIntroduction" id="generalIntroduction">
+		<div class="generalIntroductionBackgroundContainar">
+			
+		</div>
+		<div id="generalIntroductionContainar" class="generalIntroductionContainar">
+    
+		</div>
+	</div>*/
+  
